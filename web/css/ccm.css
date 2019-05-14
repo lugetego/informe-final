@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.top-unam {
+    background-color: #333e5b;
+    color: #fff;
+    font-size: 13px;
+}
+
+.titulo {
+    font-size: 25px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.linea {
+    height: 10px;
+    background-color: #ecc46c;
+}
