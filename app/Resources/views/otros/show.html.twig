@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Otro</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ otro.id }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ otro.autor }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ otro.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ otro.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Anio</th>
+                <td>{{ otro.anio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('otros_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('otros_edit', { 'id': otro.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

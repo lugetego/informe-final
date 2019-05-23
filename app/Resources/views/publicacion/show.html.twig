@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Publicacion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ publicacion.id }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ publicacion.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ publicacion.autor }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ publicacion.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Año</th>
+                <td>{{ publicacion.anio }}</td>
+            </tr>
+            <tr>
+                <th>Revista</th>
+                <td>{{ publicacion.journal }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ publicacion.url }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publicaciones_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('publicaciones_edit', { 'id': publicacion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
+
+

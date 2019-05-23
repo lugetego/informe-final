@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tesi</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tesi.id }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ tesi.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ tesi.autor }}</td>
+            </tr>
+            <tr>
+                <th>Institucion</th>
+                <td>{{ tesi.institucion }}</td>
+            </tr>
+            <tr>
+                <th>Grado</th>
+                <td>{{ tesi.grado }}</td>
+            </tr>
+            <tr>
+                <th>Anio</th>
+                <td>{{ tesi.anio }}</td>
+            </tr>
+            <tr>
+                <th>Asesor</th>
+                <td>{{ tesi.asesor }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ tesi.url }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tesis_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tesis_edit', { 'id': tesi.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

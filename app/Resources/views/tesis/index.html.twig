@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tesis list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Institucion</th>
+                <th>Grado</th>
+                <th>Anio</th>
+                <th>Asesor</th>
+                <th>Url</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tesi in teses %}
+            <tr>
+                <td><a href="{{ path('tesis_show', { 'id': tesi.id }) }}">{{ tesi.id }}</a></td>
+                <td>{{ tesi.titulo }}</td>
+                <td>{{ tesi.autor }}</td>
+                <td>{{ tesi.institucion }}</td>
+                <td>{{ tesi.grado }}</td>
+                <td>{{ tesi.anio }}</td>
+                <td>{{ tesi.asesor }}</td>
+                <td>{{ tesi.url }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tesis_show', { 'id': tesi.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tesis_edit', { 'id': tesi.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tesis_new') }}">Create a new tesis</a>
+        </li>
+    </ul>
+{% endblock %}
