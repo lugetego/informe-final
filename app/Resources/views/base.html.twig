@@ -24,10 +24,16 @@
     <meta name="generator" content="CCM UNAM">
     <title>INFORME FINAL · Dr. Daniel Juan Pineda</title>
 
+    {% block stylesheets %}
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
 
 
+
+{% endblock %}
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
 
     <style>
         .bd-placeholder-img {
@@ -48,6 +54,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/ccm.css') }}" />
+
 </head>
 <body>
 <header>
@@ -98,9 +105,12 @@
 
 </header>
 
+{% block body %}
 
 
-<all> role="main">
+
+
+
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -684,6 +694,7 @@
         </table>
 
 
+
         <div>&nbsp;</div>
         <div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
         <!-- Three columns of text below the carousel -->
@@ -761,8 +772,13 @@
     </footer>
     </main>
 
+{% endblock %}
+
+{% block javascripts %}
+
+
     <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-
+{% endblock %}
 </html>
