@@ -17,7 +17,7 @@ class PublicacionController extends Controller
     /**
      * Lists all publicacion entities.
      *
-     * @Route("/", name="publicaciones_index")
+     * @Route("/", name="publicaciones")
      * @Method("GET")
      */
     public function indexAction()
