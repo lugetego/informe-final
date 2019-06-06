@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Visitante</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ visitante.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ visitante.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Procedencia</th>
+                <td>{{ visitante.procedencia }}</td>
+            </tr>
+            <tr>
+                <th>Origen</th>
+                <td>{{ visitante.origen }}</td>
+            </tr>
+            <tr>
+                <th>Visitado</th>
+                <td>{{ visitante.visitado }}</td>
+            </tr>
+            <tr>
+                <th>Motivo</th>
+                <td>{{ visitante.motivo }}</td>
+            </tr>
+            <tr>
+                <th>Evento</th>
+                <td>{{ visitante.evento }}</td>
+            </tr>
+            <tr>
+                <th>Fechainicio</th>
+                <td>{% if visitante.fechaInicio %}{{ visitante.fechaInicio|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechafin</th>
+                <td>{% if visitante.fechaFin %}{{ visitante.fechaFin|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('visitantes_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('visitantes_edit', { 'id': visitante.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css"/>
+
+{% endblock %}
+
+{% block body %}
+    <h1>Visitas</h1>
+
+    <table id="salidas" class="table table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>Academico</th>
+                <th>Lugar</th>
+                <th>Pais</th>
+                <th>Fechainicio</th>
+                <th>Fechafin</th>
+                <th>Evento</th>
+                <th>Actividad</th>
+                <th>Motivo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visita in visitas %}
+            <tr>
+                <td>{{ visita.academico }}</td>
+                <td>{{ visita.lugar }}</td>
+                <td>{{ visita.pais }}</td>
+                <td>{% if visita.fechaInicio %}{{ visita.fechaInicio|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if visita.fechaFin %}{{ visita.fechaFin|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ visita.evento }}</td>
+                <td>{{ visita.actividad }}</td>
+                <td>{{ visita.motivo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('visitas_show', { 'id': visita.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('visitas_edit', { 'id': visita.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('visitas_new') }}">Create a new visita</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#salidas').DataTable({
+
+                pageLength: 10,
+                bLengthChange: false,
+                responsive: true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/380cb78f450/i18n/Spanish.json'
+                },
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    { responsivePriority: 2, targets: 1 }
+                ]
+
+            } );
+        } );
+    </script>
+{% endblock %}
